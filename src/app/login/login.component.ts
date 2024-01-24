@@ -34,7 +34,7 @@ export class LoginComponent {
     const value = this.detailForm.getRawValue();
 
     if (this.detailForm.valid) {
-      const isValidUser = this.dummyLoginData.some(user => 
+      const isValidUser = this.dummyLoginData.find(user => 
         user.username === value.username && user.password === value.password);
 
       if (isValidUser) {

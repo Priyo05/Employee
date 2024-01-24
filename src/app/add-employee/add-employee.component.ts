@@ -54,11 +54,11 @@ constructor(
   onSubmit() {
       if (this.employeeForm.valid) {
         
-        const formData = { 
-          ...this.employeeForm.value 
-        };
-        console.log(formData);
-        this.employeeService.create(formData)
+        // const formData = { 
+        //   ...this.employeeForm.value 
+        // };
+        // console.log(formData);
+        this.employeeService.create(this.employeeForm.value)
           .subscribe({
             next: (data: any) => {
               this.router.navigate(['/employees']);
