@@ -1,0 +1,48 @@
+
+<div class="container mt-4 ">
+    <h3 class="mb-4">Employee List</h3>
+    <div class="mb-4">
+        <div>
+            <button class="btn btn-primary" routerLink="/add-employee">Add Employee</button>
+        </div>
+    </div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-striped row-border hover">
+        <thead>
+            <tr>
+                <th>Full Name</th>   
+                <th>UserName</th>   
+                <th>Email</th>   
+                <th>Group</th>   
+                <th>Salary</th>   
+                <th>Action</th>   
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.firstName }} {{employee.lastName}}</td>
+                <td>{{employee.username}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.group}}</td>
+                <td>{{employee.basicSalary | currency:'Rp. '}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="editClick(employee)" >Edit</button>
+                    <button class="btn btn-danger" (click)="deleteClick(employee)">Delete</button>
+                    <button class="btn btn-secondary" (click)="goToDetail(employee.id)">Detail</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="toast align-items-center text-bg-primary border-0" id="customToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+       
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div>
+
+
+  
